@@ -1,0 +1,405 @@
+/* styles.css
+   Visual identity: "appreciation card" — warm, paper-and-ink, the feeling of
+   handwritten thank-you notes pinned to a board, not a cold SaaS dashboard.
+
+   Palette:
+     --cream      #FFF8F0  background
+     --ink        #2B2420  primary text (warm near-black, not pure black)
+     --terracotta #E8623F  kudos accent / primary action
+     --sage       #4A7C6E  moderation / admin accent
+     --tan        #D4C5A9  borders, dividers, quiet surfaces
+*/
+
+:root {
+  --cream: #FFF8F0;
+  --ink: #2B2420;
+  --terracotta: #E8623F;
+  --terracotta-dark: #C94E2D;
+  --sage: #4A7C6E;
+  --sage-dark: #386054;
+  --tan: #D4C5A9;
+  --tan-light: #EDE3D2;
+  --card-shadow: 0 2px 6px rgba(43, 36, 32, 0.08), 0 1px 2px rgba(43, 36, 32, 0.06);
+}
+
+* { box-sizing: border-box; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .kudos-card { transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  .btn { transition: background-color 0.15s ease, transform 0.1s ease; }
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  margin: 0;
+}
+
+/* ---------- Topbar ---------- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 28px;
+  border-bottom: 1px solid var(--tan);
+  background: var(--cream);
+}
+
+.topbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topbar__mark {
+  color: var(--terracotta);
+  font-size: 20px;
+}
+
+.topbar__title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: -0.01em;
+}
+
+.user-switcher {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.user-switcher select {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--tan);
+  background: white;
+  color: var(--ink);
+}
+
+.user-switcher__badge {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--sage-dark);
+  background: #E3EEE9;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+/* ---------- Layout ---------- */
+
+.layout {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 36px 20px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+/* ---------- Composer ---------- */
+
+.composer__heading {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.composer__sub {
+  margin: 6px 0 20px;
+  color: #6B5F54;
+  font-size: 15px;
+}
+
+.composer__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+
+.field__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #6B5F54;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.field__input {
+  font-family: inherit;
+  font-size: 15px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1.5px solid var(--tan);
+  background: white;
+  color: var(--ink);
+}
+
+.field__input:focus-visible {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 1px;
+  border-color: var(--terracotta);
+}
+
+.field__input--textarea {
+  resize: vertical;
+  min-height: 84px;
+  font-family: inherit;
+}
+
+.field__hint {
+  align-self: flex-end;
+  font-size: 12px;
+  color: #9C8F80;
+}
+
+.form-error {
+  font-size: 14px;
+  color: #A8311E;
+  background: #FBE8E2;
+  border: 1px solid #EFC2B3;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.btn {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 11px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn--primary {
+  background: var(--terracotta);
+  color: white;
+  align-self: flex-start;
+}
+
+.btn--primary:hover { background: var(--terracotta-dark); }
+.btn--primary:active { transform: scale(0.98); }
+.btn--primary:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--tan);
+}
+
+.btn--ghost:hover { background: var(--tan-light); }
+
+.btn--danger {
+  background: transparent;
+  color: #A8311E;
+  border: 1.5px solid #EFC2B3;
+}
+
+.btn--danger:hover { background: #FBE8E2; }
+
+/* ---------- Feed ---------- */
+
+.feed__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.feed__heading {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.feed__list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.feed__empty {
+  color: #9C8F80;
+  font-size: 14px;
+  padding: 24px 0;
+  text-align: center;
+  border: 1.5px dashed var(--tan);
+  border-radius: 12px;
+}
+
+.feed__load-more {
+  margin-top: 16px;
+  align-self: center;
+}
+
+/* Signature element: kudos cards styled like little notes pinned to a board,
+   with a soft terracotta corner-fold accent instead of a generic avatar/icon. */
+.kudos-card {
+  background: white;
+  border: 1.5px solid var(--tan);
+  border-radius: 12px;
+  padding: 16px 18px;
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.kudos-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 22px 22px 0;
+  border-color: transparent var(--terracotta) transparent transparent;
+  opacity: 0.85;
+}
+
+.kudos-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(43, 36, 32, 0.12);
+}
+
+.kudos-card__line {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.kudos-card__names {
+  font-weight: 600;
+}
+
+.kudos-card__arrow {
+  color: var(--terracotta);
+  margin: 0 4px;
+}
+
+.kudos-card__message {
+  margin-top: 6px;
+  color: var(--ink);
+}
+
+.kudos-card__meta {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #9C8F80;
+}
+
+/* ---------- Admin / moderation ---------- */
+
+.admin {
+  border-top: 1px solid var(--tan);
+  padding-top: 28px;
+}
+
+.admin__heading {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--sage-dark);
+}
+
+.admin__sub {
+  margin: 4px 0 18px;
+  font-size: 13px;
+  color: #6B5F54;
+}
+
+.admin__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  background: white;
+  border: 1.5px solid var(--tan);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.admin-row--hidden {
+  background: var(--tan-light);
+  opacity: 0.85;
+}
+
+.admin-row__content {
+  flex: 1;
+  font-size: 14px;
+}
+
+.admin-row__status {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-left: 8px;
+}
+
+.admin-row__status--hidden {
+  background: #FBE8E2;
+  color: #A8311E;
+}
+
+.admin-row__status--visible {
+  background: #E3EEE9;
+  color: var(--sage-dark);
+}
+
+.admin-row__actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* ---------- Toast ---------- */
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: var(--cream);
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 600px) {
+  .topbar { padding: 14px 16px; }
+  .layout { padding: 24px 14px 64px; gap: 28px; }
+  .composer__heading { font-size: 23px; }
+  .admin-row { flex-direction: column; }
+  .admin-row__actions { width: 100%; }
+}

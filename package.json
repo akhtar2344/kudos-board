@@ -1,0 +1,23 @@
+{
+  "name": "kudos-system",
+  "version": "1.0.0",
+  "description": "Internal employee kudos board with content moderation, built via spec-driven development.",
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "seed": "node src/seed.js",
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": ["kudos", "internal-tool", "express", "sqlite"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
