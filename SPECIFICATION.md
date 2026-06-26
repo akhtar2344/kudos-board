@@ -1,7 +1,5 @@
 # Kudos System Specification
 
-# Kudos System Specification
-
 > **Repository:** https://github.com/akhtar2344/kudos-board
 > **Status:** APPROVED — refined and reviewed by the Architect (Step 2 of Task 2) prior to implementation.
 > See `docs/SPEC_V0_DRAFT.md` for the original AI-generated draft this document was refined from.
